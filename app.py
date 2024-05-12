@@ -21,5 +21,6 @@ def add_guide():
         file.save('path/to/save/file/' + file.filename)
         return redirect(url_for('home'))
     return render_template('add_guide.html')
-
+if name == 'main':
+    
     app.run(debug=True)
