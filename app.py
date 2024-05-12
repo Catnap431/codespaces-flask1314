@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(name)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -22,5 +22,4 @@ def add_guide():
         return redirect(url_for('home'))
     return render_template('add_guide.html')
 
-if name == 'main':
     app.run(debug=True)
