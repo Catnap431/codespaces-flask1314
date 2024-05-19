@@ -23,6 +23,7 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-primary">Войти</button>
+          <button type="button" class="btn btn-secondary" onclick="goToMainPage()">На главную</button>
         </div>
       </div>
     </form>
@@ -47,6 +48,10 @@
         alert("Неверный логин или пароль!");
       }
     });
+
+    function goToMainPage() {
+      window.location.href = '/';
+    }
   </script>
 </body>
 </html>
