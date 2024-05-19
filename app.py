@@ -47,9 +47,12 @@ def login():
 @app.route('/add_guide', methods=['GET', 'POST'])
 def add_guide():
     if request.method == 'POST':
-        file = request.files['file']
-        file_path = os.path.join('Save_guides', file.filename)
-        file.save(file_path)
+        guide_title = request.form.get('guide_title')
+        guide_content = request.form.get('guide_content')
+        guide_file_name = f"{guide_title}.txt"
+        file_path = os.path.join('Save_guides', guide_file_name)
+        with open(file_path, 'w') as file:
+            file.write(guide_content)
         return redirect(url_for('home'))
     return render_template('add_guide.html')
 
