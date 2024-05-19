@@ -2,13 +2,28 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+# Define a list to store the guides
+guides = []
+
+
 @app.route('/')
 def home():
     return render_template('home.html')
 
-@app.route('/guides')
+@app.route('/guides', methods=['GET', 'POST'])
 def guides():
-    return render_template('guides.html')
+    if request.method == 'POST':
+        # Get the form data
+        guide_name = request.form['guide_name']
+        guide_content = request.form['guide_content']
+        
+        # Save the guide to the list or database
+        guides.append({'name': guide_name, 'content': guide_content})
+        
+        # Redirect back to the guides page
+        return redirect(url_for('guides'))
+    else:
+        return render_template('guides.html', guides=guides)
 
 @app.route('/contact')
 def contact():
