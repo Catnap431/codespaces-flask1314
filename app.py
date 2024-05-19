@@ -46,9 +46,11 @@ def login():
 def add_guide():
     if request.method == 'POST':
         file = request.files['file']
-        file.save('path/to/save/file/' + file.filename)
+        file_path = os.path.join('Save_guides', file.filename)
+        file.save(file_path)
         return redirect(url_for('home'))
     return render_template('add_guide.html')
+
 if (__name__) == '__main__':
 
     app.run(debug=True)
