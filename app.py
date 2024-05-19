@@ -61,7 +61,7 @@ def add_guide():
                 file.write(f"Author Name: {author_name}\n")
                 file.write(f"Description: {description}\n")
                 file.write("Guide Content:\n")
-                file.write(guide_content)
+                file.write(guide_content) # type: ignore
             
             return redirect(url_for('home'))
     
