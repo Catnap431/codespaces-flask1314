@@ -16,10 +16,12 @@
       {% for guide in guides %}
       <li class="list-group-item" onclick="toggleHighlight(this)">
         <div class="d-flex justify-content-between">
-          <h5 class="mb-1">{{ guide['name'] }}</h5>
+          <h5 class="mb-1">{{ guide['guide_name'] }}</h5>
+          <h5 class="mb-1">{{ guide['author_name'] }}</h5>
+          <h5 class="mb-1">{{ guide['game_name'] }}</h5>
           <button class="btn btn-sm btn-primary" onclick="toggleDescription(this)">Toggle Description</button>
         </div>
-        <p class="mb-1" style="display: none;">{{ guide['content'] }}</p>
+        <p class="mb-1" style="display: none;">{{ guide['description'] }}</p>
       </li>
       {% endfor %}
     </ul>
