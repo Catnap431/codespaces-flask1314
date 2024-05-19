@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Гайды</title>
+  <title>Guides</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .highlight {
@@ -11,15 +11,19 @@
 </head>
 <body>
   <div class="container">
-    <h1>Гайды</h1>
+    <h1>Guides</h1>
     <ul class="list-group">
       {% for guide in guides %}
       <li class="list-group-item" onclick="toggleHighlight(this)">
-        <h5 class="mb-1">{{ guide['name'] }}</h5>
+        <div class="d-flex justify-content-between">
+          <h5 class="mb-1">{{ guide['name'] }}</h5>
+          <button class="btn btn-sm btn-primary" onclick="toggleDescription(this)">Toggle Description</button>
+        </div>
         <p class="mb-1" style="display: none;">{{ guide['content'] }}</p>
       </li>
       {% endfor %}
     </ul>
+    <button class="btn btn-primary" onclick="goToMainPage()">Go to Main Page</button>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -27,7 +31,14 @@
   <script>
     function toggleHighlight(element) {
       $(element).toggleClass('highlight');
-      $(element).find('p').toggle();
+    }
+
+    function toggleDescription(element) {
+      $(element).closest('.list-group-item').find('p').toggle();
+    }
+
+    function goToMainPage() {
+      window.location.href = '/';
     }
   </script>
 </body>
