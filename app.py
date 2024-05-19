@@ -10,20 +10,16 @@ guides = []
 def home():
     return render_template('home.html')
 
-@app.route('/guides', methods=['GET', 'POST'])
+@app.route('/guides')
 def guides():
-    if request.method == 'POST':
-        # Get the form data
-        guide_name = request.form['guide_name']
-        guide_content = request.form['guide_content']
-        
-        # Save the guide to the list or database
-        guides.append({'name': guide_name, 'content': guide_content})
-        
-        # Redirect back to the guides page
-        return redirect(url_for('guides'))
-    else:
-        return render_template('guides.html', guides=guides)
+    # Retrieve guides from the database or a file
+    guides = [
+        {'name': 'Guide 1', 'content': 'Content for Guide 1'},
+        {'name': 'Guide 2', 'content': 'Content for Guide 2'},
+        {'name': 'Guide 3', 'content': 'Content for Guide 3'}
+    ]
+    
+    return render_template('guides.html', guides=guides)
 
 @app.route('/contact')
 def contact():
