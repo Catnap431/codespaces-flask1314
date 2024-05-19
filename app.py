@@ -14,9 +14,9 @@ def home():
 def guides():
     # Retrieve guides from the database or a file
     guides = [
-        {'name': 'Guide 1', 'content': 'Content for Guide 1'},
-        {'name': 'Guide 2', 'content': 'Content for Guide 2'},
-        {'name': 'Guide 3', 'content': 'Content for Guide 3'}
+        {'name': 'Как играть в бравл старс', 'content': 'Пока его нет'},
+        {'name': 'Как играть в майнкрафт', 'content': 'Пока его нет'},
+        {'name': 'Как играть в роблокс', 'content': 'Пока его нет'}
     ]
     
     return render_template('guides.html', guides=guides)
